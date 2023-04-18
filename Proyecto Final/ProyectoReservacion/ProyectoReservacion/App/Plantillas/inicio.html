@@ -1,0 +1,36 @@
+{% extends "Main.html" %}
+{% block title %} inicio {% endblock %}
+
+{% block content %} 
+    
+    <h1 style="color: rgb(3, 3, 80);">Inicio</h1> <!-- Titulo de pagina inicio -->
+
+    <div class="card border-2 bg-light  p-3"> <!-- Contenedor que tiene todos los elementos de la pagina de inicio -->
+
+        <div style="color: rgb(50, 50, 114);">
+            <h5>Quiénes somos?</h5>
+        </div>
+
+        <div class="card-body border border-2 rounded bg-white"> 
+            <p>{{datos.quienessomos}}</p>
+        </div><br>
+
+        <div style="color: rgb(50, 50, 114);">
+            <h5 >Misión</h5>
+        </div>
+
+        <div class="card-body border border-2 rounded bg-white"> 
+            <p> {{datos.mision}}</p>
+        </div><br>
+
+        <div style="color: rgb(50, 50, 114);">
+            <h5 >Visión</h5>
+        </div>
+
+        <div class="card-body border border-2 rounded bg-white"> 
+            <p> {{datos.vision}}</p>
+        </div>
+
+    </div>
+
+{% endblock content %}

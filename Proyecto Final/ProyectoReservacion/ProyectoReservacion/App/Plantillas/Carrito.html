@@ -1,0 +1,64 @@
+<!-- Para esta hay que crear un cormulario-->
+{% extends "Main.html" %}
+{% block title %} carrito {% endblock %}
+
+{% block content %} 
+<div class="container mt-3"> <!-- contenedor general -->
+    <h2 style="color:rgb(36, 36, 109)"> Carrito </h2><!-- Titulo de pagina carrito -->   
+    <div class="card" style="width: 55rem;"><!-- card donde contiene todos los atributos -->  
+        <div class="card-body border-2 bg-light"><!-- card donde tiene el stylo y el color -->
+            <h4 class="card-title" style="color:rgb(36, 36, 109)"> Listado de Productos</h4>
+            <!-- Tabla para ordenar la tabla y el card de datos cliente-->
+            <form method="post">{% csrf_token %} <!-- <form action="../../form-result.php" method="post" target="_blank"> --><!-- Crear un formulario https://www.youtube.com/watch?v=zLnAjKUUAws&ab_channel=codigofacilito -->
+                <div class="row"> <!-- fila 1-->
+                    <div class="col-sm-6"><!-- Columna izquierda-->
+                        <div class="card-border mt-3"><!-- card para ;a tabla -->
+                            <table class="table table-bordered table-sm"><!-- Datos de clientes -->
+                                <thead>
+                                    <tr class="table-secondary ">
+                                        <th style="text-align: center;">Listado</th>
+                                        <th style="text-align: center;">Modificar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if libros %}
+                                        {%for libro in libros %}
+                                            <tr>
+                                                <td style="text-align: center;"></td>
+                                                <td><button type="reset" value="Eliminar"></button></td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                </tbody>                         
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-sm-6"><!-- Columna derecha -->
+                        <div class="card border-2 bg-light" style="width: 25rem;"><!-- Card para darle forma a los datos clientes -->
+                            <div class="card-body"> <!-- card para el titulo de datos clientes -->
+                                <h5 class="card-title"> Datos Cliente</h5>
+                                <label for="fname"> Nombre</label><br>
+                                <input type="text" name="fname" placeholder="Type full name here"></input><br>
+    
+                                <label for="ftelefono">Telefono</label><br>
+                                <input type="text" name="ftelefono" placeholder="Phone number"></input><br>
+    
+                                <label for="fCorreo">Correo</label><br>
+                                <input type="text" name="fCorreo" placeholder="Type email here"></input><br>
+    
+                                <label><input type="checkbox" name="cb-terminosservicio" required> Esta de acuerdo con los términos y condiciones</label>                                
+                            </div>
+                        </div>  
+                    </div>          
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-8"></div>
+                    <div class="container mt-5 ccol-6 col-md-4">
+                        <p><input type="submit" value="CONFIRMAR" class=" btn btn-dark" style="color:aliceblue;"></p>
+                    </div> 
+                </div>    
+            </form><!-- Final del formulario -->
+        </div>  
+    </div>
+</div>
+{% endblock content %}

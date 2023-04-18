@@ -1,0 +1,69 @@
+{% extends "Main.html" %}
+{% block title %} contactenos {% endblock %}
+
+{% block content %} 
+<div class="container mt-3">
+    <h2 style="color:rgb(36, 36, 109)"> Contactenos </h2>
+        <div class="card-body  bg-light" type ="width: 55rem">
+            <div class="row">
+                <div class="col-sm-8">
+                    <from action=" " method="POST" >{% csrf_token %}<!-- Aun falta el acction que no hace nada -->
+                        <h4 class="title" style="color: rgb(36, 36, 109)"> Indicanos cuales libros no has encontrado</h4>
+                        <h6 class="subtitle" style="color: rgb(143, 143, 197)">Send us a message and we'll respond within 24 hours</h6>
+                        <div class="row mt-3">
+                            <div class="col-sm-4">
+                                <label>Name</label>
+                                <input type="nombre" class="form-control" id="name" placeholder="Type full name here" name="name">
+                            </div>
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-4">
+                                <label>Correo</label>
+                                <input type="correo" class="form-control" id="correo" placeholder="Type full email here" name="correo">
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-sm-4 mt-3">
+                                <label>Telefono</label>
+                                <input type="telefono" class="form-control" id="telefono" placeholder="Phone number" name="telefono">
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-sm-10 mt-3">
+                                <textarea class="form-control form-control-sm" rows="5" id="comment" name="texto" placeholder="Type your message here"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-8"></div>
+                            <div class="col-sm-4">
+                                <input type="submit" class="btn btn-primary"  value="enviar"> <!--onclick="window.location.href='//127.0.0.1:8000/Biblioteca/contactenos2'"-->
+                            </div>
+                        </div>
+                    </from>
+                </div>
+                <div class="col-sm-4">
+                    <h4 style="color: rgb(36, 36, 109)"> Contact Information</h4><br>
+                    <div class="container" text="align-items center" ><hr size="2" style="border-style: solid; border-width: 1px; width: 90%;"></hr></div>
+                    <p><span class="fas fa-map-marker-alt"></span> San Roque, Barva, Heredia</p>
+                    <p>&#128231; contactenos@biblioteca.com</p>
+                    <p>&#128241; +506 88916481</p><br>
+                    <div class="container" text=" align-items center" ><hr size="2" style="border-style: solid; border-width: 1px; width: 90%;"></hr></div>
+                    <div class="row">
+                        <div class="col-sm-4 mt3">
+                            <div class="row">
+                                <div class="col-sm-2 mt3">
+                                    <span class="fab fa-twitter"></span>
+                                </div>
+                                <div class="col-sm-2 mt3">
+                                     <span class="fab fa-instagram"></span>
+                                </div>
+                                <div class="col-sm-2 mt3">
+                                    <span class="fab fa-facebook-square"></span>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
