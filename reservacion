@@ -1,0 +1,52 @@
+{% extends "Main.html" %}
+{% block title %} reservacion {% endblock %}
+
+{% block content %} 
+<div class="container mt-3"> 
+    <h2 style="color:rgb(36, 36, 109)"> Reservacion </h2>
+    <div class="card">
+        <div class="card-body border-2 bg-light" >
+            <h4 style="color:rgb(36, 36, 109)"> Biblioteca</h4>
+            <form action="/Biblioteca/reservacion" method="POST"> {% csrf_token %}
+                <div class = "card-group">
+                    {% if libros %}
+                        <ul>
+                            <div class="d-flex">
+                                {%for libro in libros %}
+                                    <li>
+                                        <div class="card text-black bg-light mb-3 m-2" style="max-width: 18rem;">
+                                            <div class="card-header">{{libro.nombre}} </div>
+                                            <div class="card-body"><img class="card-img" src="{{libro.imagen}}" alt=" "></div>
+                                            <div class="card-footer border-success">
+                                                <label class="btn btn-primary">
+                                                <input typen="hidden" value="{{libro.nombre}}" bname="name">
+                                                <input type="checkbox" id="my-checkbox" autocomplete="off"> Agregar
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </div>
+                        </ul>
+                    {% else %}
+                        <p> No hay libros </p>
+                    {% endif %}
+                </div>
+                <div class="container mt-3">
+                    <label for="item"> Items por pagina:</label>
+                        <select name="item" id= "cantidad">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                </div>
+                <div class="row">
+                    <div class="col-8"></div>
+                    <div class="col-4">
+                        <button class="btn btn-primary" type="submit"  value="Reservar">Reservar</button>
+                    </div>
+                </div>
+            </form>            
+        </div>
+    </div>
+</div>
+{% endblock content %}
